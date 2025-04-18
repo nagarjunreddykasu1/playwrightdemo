@@ -35,7 +35,7 @@ test("Get Booking", async({request})=>{
     const bId = responseBody.bookingid;
     //following statements are not used
     const fname = responseBody.firstname;
-    const lname = responseBody.lastnam;e
+    const lname = responseBody.lastname;
 
     console.log("*****  Get Request by ID ******");
     const getBookingDetails = await request.get(`/booking/${bId}`, {});
