@@ -33,8 +33,9 @@ test("Get Booking", async({request})=>{
     expect(responseBody.booking).toHaveProperty("additionalneeds", additionalNeeds);
 
     const bId = responseBody.bookingid;
+    //following statements are not used
     const fname = responseBody.firstname;
-    const lname = responseBody.lastname;
+    const lname = responseBody.lastnam;e
 
     console.log("*****  Get Request by ID ******");
     const getBookingDetails = await request.get(`/booking/${bId}`, {});
