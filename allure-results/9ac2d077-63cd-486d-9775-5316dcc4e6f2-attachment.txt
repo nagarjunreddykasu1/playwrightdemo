@@ -1,0 +1,11 @@
+{
+  bookingid: 132,
+  booking: {
+    firstname: 'Shakthi',
+    lastname: 'Reddy',
+    totalprice: 1000,
+    depositpaid: true,
+    bookingdates: { checkin: '2024-07-04', checkout: '2024-12-31' },
+    additionalneeds: 'super bowls'
+  }
+}

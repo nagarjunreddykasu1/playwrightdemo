@@ -1,0 +1,63 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: Validate successfull Registration of Account
+- Location: D:\Playwright\MochaFramework\tests\Registration2.spec.js:22:1
+
+# Error details
+
+```
+Error: "context" and "page" fixtures are not supported in "beforeAll" since they are created on a per-test basis.
+If you would like to reuse a single page between tests, create context manually with browser.newContext(). See https://aka.ms/playwright/reuse-page for details.
+If you would like to configure your page before each test, do that in beforeEach hook instead.
+```
+
+# Test source
+
+```ts
+   1 | const { test, expect } = require("@playwright/test");
+   2 | const { POManager } = require("../pageobjects/POManager");
+   3 | const dataset = JSON.parse(JSON.stringify(require("../utils/config.json")));
+   4 |
+   5 | let loginPage, registerPage;
+   6 | //for (const data of dataset) {
+   7 | dataset.forEach((data) => {
+   8 |   test.beforeEach(async ({ page }) => {
+   9 |     const poManager = new POManager(page);
+  10 |     loginPage = poManager.getLoginPage();
+  11 |     registerPage = poManager.getRegistrationPage();
+  12 |     await loginPage.goTo(data.url);
+  13 |   });
+  14 | });
+  15 |
+  16 | test("Validate missing mandatory fields", async ({ page }) => {
+  17 |   await registerPage.goToRegisterPage();
+  18 |   await registerPage.submitForm();
+  19 |   await registerPage.validateRegistration();
+  20 | });
+  21 |
+> 22 | test("Validate successfull Registration of Account", async ({ page }) => {
+     | ^ Error: "context" and "page" fixtures are not supported in "beforeAll" since they are created on a per-test basis.
+  23 |   await registerPage.goToRegisterPage();
+  24 |   await registerPage.fillRegistrationForm();
+  25 |   await registerPage.submitForm();
+  26 |   await registerPage.validateSuccessMessage();
+  27 | });
+  28 |
+  29 | test.beforeAll(async ({page})=>{
+  30 |   console.log("Before all hook");
+  31 | })
+  32 |
+  33 | test.afterEach(async ({page})=>{
+  34 |   console.log("after each hook");
+  35 | })
+  36 |
+  37 | test.afterAll(async ({page})=>{
+  38 |   console.log("After all hook");
+  39 | })
+```

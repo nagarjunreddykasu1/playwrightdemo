@@ -1,0 +1,64 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: Create Booking
+- Location: D:\Playwright\MochaFramework\tests\create_booking_1.spec.js:3:1
+
+# Error details
+
+```
+Error: expect(received).toHaveProperty(path, value)
+
+Expected path: "checkout"
+
+Expected value: "2025-04-16"
+Received value: "2025-04-15"
+    at D:\Playwright\MochaFramework\tests\create_booking_1.spec.js:30:47
+```
+
+# Test source
+
+```ts
+   1 | const { test, expect } = require("@playwright/test");
+   2 |
+   3 | test("Create Booking", async({request})=>{
+   4 |
+   5 |     const response = await request.post('/booking',{
+   6 |         data:{
+   7 |                 "firstname": "Manish",
+   8 |                 "lastname": "Kumar",
+   9 |                 "totalprice": 1000,
+  10 |                 "depositpaid": true,
+  11 |                 "bookingdates": {
+  12 |                     "checkin": "2025-04-10",
+  13 |                     "checkout": "2025-04-15"
+  14 |                 },
+  15 |                 "additionalneeds": "super bowls"
+  16 |             },
+  17 |     })
+  18 |
+  19 |     expect(response.ok()).toBeTruthy();
+  20 |     expect(response.status()).toBe(200);
+  21 |
+  22 |     const responseBody = await response.json();
+  23 |
+  24 |     console.log(responseBody);
+  25 |
+  26 |     expect(responseBody.booking).toHaveProperty("firstname", "Manish");
+  27 |     expect(responseBody.booking).toHaveProperty("lastname", "Kumar");
+  28 |
+  29 |     expect(responseBody.booking.bookingdates).toHaveProperty("checkin", "2025-04-10");
+> 30 |     expect(responseBody.booking.bookingdates).toHaveProperty("checkout", "2025-04-16");
+     |                                               ^ Error: expect(received).toHaveProperty(path, value)
+  31 |
+  32 |
+  33 |
+  34 |
+  35 |
+  36 | })
+```

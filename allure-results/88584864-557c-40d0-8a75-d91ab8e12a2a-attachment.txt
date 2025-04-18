@@ -1,0 +1,11 @@
+{
+  bookingid: 1689,
+  booking: {
+    firstname: 'Manish',
+    lastname: 'Kumar',
+    totalprice: 1000,
+    depositpaid: true,
+    bookingdates: { checkin: '2025-04-10', checkout: '2025-04-15' },
+    additionalneeds: 'super bowls'
+  }
+}

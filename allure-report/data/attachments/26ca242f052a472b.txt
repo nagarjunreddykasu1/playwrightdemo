@@ -1,0 +1,292 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: Validate successfull Registration of Account
+- Location: D:\Playwright\MochaFramework\tests\Registration.spec.js:20:1
+
+# Error details
+
+```
+Error: Timed out 5000ms waiting for expect(locator).toContainText(expected)
+
+Locator: locator('h1')
+Expected string: "Your Account Has Been Created!"
+Received string: "Register Account"
+Call log:
+  - expect.toContainText with timeout 5000ms
+  - waiting for locator('h1')
+    9 × locator resolved to <h1 class="page-title h3">Register Account</h1>
+      - unexpected value "Register Account"
+
+    at RegistrationPage.validateSuccessMessage (D:\Playwright\MochaFramework\pageobjects\RegistrationPage.js:52:46)
+    at D:\Playwright\MochaFramework\tests\Registration.spec.js:28:24
+```
+
+# Page snapshot
+
+```yaml
+- heading "Top categories close" [level=5]:
+  - text: Top categories
+  - link "close": 
+- navigation:
+  - list:
+    - listitem:
+      - link "Components":
+        - img
+        - text: Components
+    - listitem:
+      - link "Cameras":
+        - img
+        - text: Cameras
+    - listitem:
+      - link "Phone, Tablets & Ipod":
+        - img
+        - text: Phone, Tablets & Ipod
+    - listitem:
+      - link "Software":
+        - img
+        - text: Software
+    - listitem:
+      - link "MP3 Players":
+        - img
+        - text: MP3 Players
+    - listitem:
+      - link "Laptops & Notebooks":
+        - img
+        - text: Laptops & Notebooks
+    - listitem:
+      - link "Desktops and Monitors":
+        - img
+        - text: Desktops and Monitors
+    - listitem:
+      - link "Printers & Scanners":
+        - img
+        - text: Printers & Scanners
+    - listitem:
+      - link "Mice and Trackballs":
+        - img
+        - text: Mice and Trackballs
+    - listitem:
+      - link "Fashion and Accessories":
+        - img
+        - text: Fashion and Accessories
+    - listitem:
+      - link "Beauty and Saloon":
+        - img
+        - text: Beauty and Saloon
+    - listitem:
+      - link "Autoparts and Accessories":
+        - img
+        - text: Autoparts and Accessories
+    - listitem:
+      - link "Washing machine":
+        - img
+        - text: Washing machine
+    - listitem:
+      - link "Gaming consoles":
+        - img
+        - text: Gaming consoles
+    - listitem:
+      - link "Air conditioner":
+        - img
+        - text: Air conditioner
+    - listitem:
+      - link "Web Cameras":
+        - img
+        - text: Web Cameras
+- heading "Quick Links close" [level=5]:
+  - text: Quick Links
+  - link "close": 
+- navigation:
+  - list:
+    - listitem:
+      - link " Special Hot"
+    - listitem:
+      - link " Wishlist"
+    - listitem:
+      - link " Compare"
+    - listitem:
+      - link " My account"
+    - listitem:
+      - link " Blog"
+    - listitem:
+      - link " Tracking"
+    - listitem:
+      - link " Contact us"
+- separator
+- paragraph: Place here any module, widget, design or HTML. for example menu, categories
+- heading "Cart close" [level=5]:
+  - text: Cart
+  - link "close": 
+- paragraph: Your shopping cart is empty!
+- table:
+  - rowgroup:
+    - 'row "Sub-Total: $0.00"':
+      - cell "Sub-Total:"
+      - cell "$0.00":
+        - strong: $0.00
+    - 'row "Total: $0.00"':
+      - cell "Total:"
+      - cell "$0.00":
+        - strong: $0.00
+- button " Edit cart"
+- button " Checkout"
+- banner:
+  - button ""
+  - figure:
+    - link "Poco Electro":
+      - img "Poco Electro"
+  - button "All Categories"
+  - textbox "Search For Products"
+  - button "Search"
+  - link "Compare":
+    - img
+  - link "Wishlist":
+    - img
+  - button "0":
+    - img
+    - text: "0"
+  - button "Shop by Category":
+    - img
+    - text: Shop by Category
+  - navigation:
+    - list:
+      - listitem:
+        - link "Home"
+      - listitem:
+        - link "Special Hot"
+      - listitem:
+        - link "Blog"
+      - listitem:
+        - button "Mega Menu"
+      - listitem:
+        - button "AddOns Featured"
+      - listitem:
+        - button " My account"
+  - paragraph:
+    - strong: This is a dummy website for Web Automation Testing
+- navigation "breadcrumb":
+  - list:
+    - listitem:
+      - link ""
+    - listitem:
+      - text: /
+      - link "Account"
+    - listitem: / Register
+- text: " Warning: E-Mail Address is already registered!"
+- heading "Register Account" [level=1]
+- paragraph:
+  - text: If you already have an account with us, please login at the
+  - link "login page"
+  - text: .
+- group "Your Personal Details":
+  - text: Your Personal Details First Name*
+  - textbox "First Name*": Nagarjun
+  - text: Last Name*
+  - textbox "Last Name*": Reddy
+  - text: E-Mail*
+  - textbox "E-Mail*": nag+asdfg3@gmail.com
+  - text: Telephone*
+  - textbox "Telephone*": +91 8934883838
+  - text: Enter valid phone number with country code!
+- group "Your Password":
+  - text: Your Password Password*
+  - textbox "Password*": Welcome@2025
+  - text: Password Confirm*
+  - textbox "Password Confirm*": Welcome@2025
+- group "Newsletter":
+  - text: Newsletter Subscribe
+  - radio "Yes"
+  - text: "Yes"
+  - radio "No" [checked]
+  - text: "No"
+- checkbox "I have read and agree to the Privacy Policy" [checked]
+- text: I have read and agree to the
+- link "Privacy Policy"
+- button "Continue"
+- complementary:
+  - link " Login"
+  - link " Register"
+  - link " Forgotten Password"
+  - link " My Account"
+  - link " Address Book"
+  - link " Wish List"
+  - link " Order History"
+  - link " Downloads"
+  - link " Recurring payments"
+  - link " Reward Points"
+  - link " Returns"
+  - link " Transactions"
+  - link " Newsletter"
+- contentinfo:
+  - paragraph: © LambdaTest - Powered by OpenCart
+```
+
+# Test source
+
+```ts
+   1 | const { expect } = require("@playwright/test");
+   2 | class RegistrationPage{
+   3 |     constructor(page){
+   4 |         this.page = page;
+   5 |         this.btnContinueRegister = page.getByRole('link', { name: 'Continue', exact: true });
+   6 |         this.txtFirstName = page.getByPlaceholder('First Name');
+   7 |         this.txtLastName = page.getByPlaceholder('Last Name');
+   8 |         this.txtEmail = page.getByPlaceholder('E-Mail');
+   9 |         this.txtTelephone = page.getByPlaceholder('Telephone');
+  10 |         this.txtPassword = page.getByPlaceholder('Password', {exact:true});
+  11 |         this.txtPasswordConfirm = page.getByPlaceholder('Password Confirm');
+  12 |         this.chkAgree = page.getByText('I have read and agree to the');
+  13 |         this.btnContinue = page.getByRole('button', { name: 'Continue' });
+  14 |         this.errPrivacyPolicy = page.locator(".alert.alert-danger.alert-dismissible");
+  15 |         this.lblAccountRegister = page.locator('#account-register');
+  16 |         this.formAccount = page.locator('#account');
+  17 |         this.errPassword = page.locator("//input[@id='input-password']/following-sibling::div");
+  18 |         this.msgSuccessHeading = page.locator('h1');
+  19 |     }
+  20 |
+  21 |     async goToRegisterPage(){
+  22 |         await this.btnContinueRegister.click();
+  23 |     }
+  24 |
+  25 |     async submitForm(){
+  26 |         await this.btnContinue.click();
+  27 |     }
+  28 |
+  29 |     async validateRegistration(){
+  30 |         const expectedPrivacyPolicyMessage = 'Warning: You must agree to the Privacy Policy!';
+  31 |         await expect(this.errPrivacyPolicy).toContainText(expectedPrivacyPolicyMessage);
+  32 |         expect(String(await this.errPrivacyPolicy.textContent()).trim()).toEqual(expectedPrivacyPolicyMessage);
+  33 |         await expect(this.formAccount).toContainText('First Name must be between 1 and 32 characters!');
+  34 |         await expect(this.formAccount).toContainText('Last Name must be between 1 and 32 characters!');
+  35 |         await expect(this.formAccount).toContainText('E-Mail Address does not appear to be valid!');
+  36 |         await expect(this.formAccount).toContainText('Telephone must be between 3 and 32 characters!');
+  37 |         await expect(this.errPassword).toHaveText('Password must be between 4 and 20 characters!');
+  38 |     }
+  39 |
+  40 |     async fillRegistrationForm(){
+  41 |         await this.txtFirstName.fill("Nagarjun");
+  42 |         await this.txtLastName.fill("Reddy");
+  43 |         await this.txtEmail.fill("nag+asdfg3@gmail.com");
+  44 |         await this.txtTelephone.fill("+91 8934883838");
+  45 |         await this.txtPassword.fill("Welcome@2025");
+  46 |         await this.txtPasswordConfirm.fill("Welcome@2025");
+  47 |         await this.chkAgree.check();
+  48 |     }
+  49 |
+  50 |     async validateSuccessMessage(){
+  51 |         const expectedSuccessHeading = "Your Account Has Been Created!";
+> 52 |         await expect(this.msgSuccessHeading).toContainText(expectedSuccessHeading);
+     |                                              ^ Error: Timed out 5000ms waiting for expect(locator).toContainText(expected)
+  53 |         expect(String(await this.msgSuccessHeading.textContent()).trim()).toEqual(expectedSuccessHeading);
+  54 |     }
+  55 |
+  56 |
+  57 | }
+  58 | module.exports = {RegistrationPage};
+```

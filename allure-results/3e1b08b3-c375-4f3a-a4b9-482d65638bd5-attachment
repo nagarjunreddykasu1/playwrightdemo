@@ -1,0 +1,101 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: Get Booking
+- Location: D:\Playwright\MochaFramework\tests\get_booking_05.spec.js:7:1
+
+# Error details
+
+```
+Error: expect(received).toHaveProperty(path, value)
+
+Expected path: "bookingid"
+
+Expected value: 2695
+Received value: 1616
+    at D:\Playwright\MochaFramework\tests\get_booking_05.spec.js:69:28
+```
+
+# Test source
+
+```ts
+   1 | const { test, expect } = require("@playwright/test");
+   2 | const createBookingPayload = require('../testdata/create_booking_dynamic_payload.json');
+   3 | const {faker} = require("@faker-js/faker");
+   4 | const { DateTime } = require("luxon");
+   5 | const {stringFormat} = require("../utils/common");
+   6 |
+   7 | test("Get Booking", async({request})=>{
+   8 |
+   9 |     const firstName = faker.person.firstName();
+  10 |     const lastName = faker.person.lastName();
+  11 |     const totalPrice = faker.number.int(1000);
+  12 |     const additionalNeeds = faker.string.alpha(10, 20)
+  13 |     const checkInDate = DateTime.now().toFormat("yyyy-MM-dd");
+  14 |     const checkOutDate = DateTime.now().plus({days: 5}).toFormat("yyyy-MM-dd");
+  15 |
+  16 |     var dynamicPayload = stringFormat(JSON.stringify(createBookingPayload), firstName, lastName, totalPrice, checkInDate, checkOutDate, additionalNeeds)
+  17 |     const dynamicRequestBody = JSON.parse(dynamicPayload);
+  18 |     
+  19 |     const response = await request.post('/booking',{
+  20 |         data: dynamicRequestBody
+  21 |     })
+  22 |
+  23 |     expect(response.ok()).toBeTruthy();
+  24 |     expect(response.status()).toBe(200);
+  25 |
+  26 |     const responseBody = await response.json();
+  27 |     console.log(responseBody);
+  28 |
+  29 |     expect(responseBody.booking).toHaveProperty("firstname", firstName);
+  30 |     expect(responseBody.booking).toHaveProperty("lastname", lastName);
+  31 |     expect(responseBody.booking.bookingdates).toHaveProperty("checkin", checkInDate);
+  32 |     expect(responseBody.booking.bookingdates).toHaveProperty("checkout", checkOutDate);
+  33 |     expect(responseBody.booking).toHaveProperty("additionalneeds", additionalNeeds);
+  34 |
+  35 |     const bId = responseBody.bookingid;
+  36 |     const fname = responseBody.firstname;
+  37 |     const lname = responseBody.lastname;
+  38 |
+  39 |     console.log("*****  Get Request by ID ******");
+  40 |     const getBookingDetails = await request.get(`/booking/${bId}`, {});
+  41 |
+  42 |     expect(getBookingDetails.ok()).toBeTruthy();
+  43 |     expect(getBookingDetails.status()).toBe(200);
+  44 |
+  45 |     const bookingDetails = await getBookingDetails.json();
+  46 |
+  47 |     console.log(bookingDetails);
+  48 |
+  49 |     expect(bookingDetails).toHaveProperty("firstname", dynamicRequestBody.firstname);
+  50 |     expect(bookingDetails).toHaveProperty("lastname", dynamicRequestBody.lastname);
+  51 |
+  52 |     expect(bookingDetails.bookingdates).toHaveProperty("checkin", dynamicRequestBody.bookingdates.checkin);
+  53 |     expect(bookingDetails.bookingdates).toHaveProperty("checkout", checkOutDate);
+  54 |
+  55 |     console.log("*****  Get Request by Parameters ******");
+  56 |
+  57 |     const getBookDetails = await request.get('/booking/',{
+  58 |         params:{
+  59 |             "firstname":fname,
+  60 |             "lastname":lname
+  61 |         }
+  62 |     });
+  63 |
+  64 |     expect(getBookDetails.ok()).toBeTruthy();
+  65 |     expect(getBookDetails.status()).toBe(200);
+  66 |
+  67 |     const bookingData = await getBookDetails.json();
+  68 |
+> 69 |     expect(bookingData[0]).toHaveProperty("bookingid", bId);
+     |                            ^ Error: expect(received).toHaveProperty(path, value)
+  70 |
+  71 |
+  72 |
+  73 | })
+```

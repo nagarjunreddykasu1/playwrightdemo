@@ -1,0 +1,25 @@
+ *** Create Booking ***
+{
+  bookingid: 4785,
+  booking: {
+    firstname: 'Mateo',
+    lastname: 'Wintheiser',
+    totalprice: 622,
+    depositpaid: true,
+    bookingdates: { checkin: '2025-04-18', checkout: '2025-04-24' },
+    additionalneeds: 'vQAikZFwJR'
+  }
+}
+ *** GET Booking by ID *** 
+[ { bookingid: 4785 } ]
+ *** Generate Token ***
+{ token: '0d0254a9d2c5548' }
+ *** Update Booking Details ***
+{
+  firstname: 'Nagarjuna',
+  lastname: 'Reddy',
+  totalprice: 1000,
+  depositpaid: true,
+  bookingdates: { checkin: '2024-07-05', checkout: '2024-07-12' },
+  additionalneeds: 'Laptop'
+}

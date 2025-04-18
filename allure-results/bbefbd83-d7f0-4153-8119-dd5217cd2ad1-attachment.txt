@@ -1,0 +1,21 @@
+{
+  bookingid: 2695,
+  booking: {
+    firstname: 'Carlie',
+    lastname: 'Kuhlman',
+    totalprice: 148,
+    depositpaid: true,
+    bookingdates: { checkin: '2025-04-18', checkout: '2025-04-23' },
+    additionalneeds: 'ZCdWleLLab'
+  }
+}
+*****  Get Request by ID ******
+{
+  firstname: 'Carlie',
+  lastname: 'Kuhlman',
+  totalprice: 148,
+  depositpaid: true,
+  bookingdates: { checkin: '2025-04-18', checkout: '2025-04-23' },
+  additionalneeds: 'ZCdWleLLab'
+}
+*****  Get Request by Parameters ******

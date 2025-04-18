@@ -1,0 +1,20 @@
+{
+  bookingid: 1398,
+  booking: {
+    firstname: 'Aaron',
+    lastname: 'Wintheiser',
+    totalprice: 228,
+    depositpaid: true,
+    bookingdates: { checkin: '2025-04-18', checkout: '2025-04-23' },
+    additionalneeds: 'KnBrgsWARS'
+  }
+}
+*****  Get Request ******
+{
+  firstname: 'Aaron',
+  lastname: 'Wintheiser',
+  totalprice: 228,
+  depositpaid: true,
+  bookingdates: { checkin: '2025-04-18', checkout: '2025-04-23' },
+  additionalneeds: 'KnBrgsWARS'
+}

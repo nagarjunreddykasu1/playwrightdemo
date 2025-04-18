@@ -1,0 +1,8 @@
+[
+    {
+        "url":"https://ecommerce-playground.lambdatest.io/index.php?route=account/login",
+        "username":"nagarjun.sdet@gmail.com",
+        "password":"Welcome@2025",
+        "myaccount_url":"https://ecommerce-playground.lambdatest.io/index.php?route=account/account"
+    }
+]

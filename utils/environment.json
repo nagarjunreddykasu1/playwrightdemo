@@ -1,0 +1,17 @@
+{
+    "QA": {
+        "url": "https://ecommerce-playground.lambdatest.io/index.php?route=account/login",
+        "username": "nagarjun.sdet@gmail.com",
+        "password": "Welcome@2025"
+    },
+    "UAT": {
+        "url": "https://uat.lambdatest.io/login",
+        "username": "uatuser@gmail.com",
+        "password": "Uattest@2025"
+    },
+    "PROD": {
+        "url": "https://prod.lambdatest.io/index.php?route=account/login",
+        "username": "produser@gmail.com",
+        "password": "Prodtest@2025"
+    }
+}

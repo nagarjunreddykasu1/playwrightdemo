@@ -1,0 +1,23 @@
+{
+  "name": "mochaframework",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "regression": "npx playwright test",
+    "webTests": "npx playwright test --grep @web",
+    "apiTests": "npx playwright test --grep @api"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@faker-js/faker": "^9.7.0",
+    "@playwright/test": "^1.51.1",
+    "@types/node": "^22.13.11",
+    "@zerostep/playwright": "^0.1.5",
+    "allure-commandline": "^2.33.0",
+    "allure-playwright": "^3.2.1",
+    "luxon": "^3.6.1"
+  }
+}

@@ -1,0 +1,80 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: Create Booking
+- Location: D:\Playwright\MochaFramework\tests\create_booking_3.spec.js:6:1
+
+# Error details
+
+```
+Error: expect(received).toHaveProperty(path, value)
+
+Expected path: "checkin"
+
+Expected value: "2025-04-10"
+Received value: "2025-04-17"
+    at D:\Playwright\MochaFramework\tests\create_booking_3.spec.js:44:47
+```
+
+# Test source
+
+```ts
+   1 | const { test, expect } = require("@playwright/test");
+   2 |
+   3 | const {faker} = require("@faker-js/faker");
+   4 | const { DateTime } = require("luxon");
+   5 |
+   6 | test("Create Booking", async({request})=>{
+   7 |
+   8 |     const firstName = faker.person.firstName();
+   9 |     const lastName = faker.person.lastName();
+  10 |
+  11 |     const totalPrice = faker.number.int(1000);
+  12 |
+  13 |     const additionalNeeds = faker.string.alpha(10, 20)
+  14 |
+  15 |     const checkInDate = DateTime.now().toFormat("yyyy-MM-dd");
+  16 |     const checkOutDate = DateTime.now().plus({days: 5}).toFormat("yyyy-MM-dd");
+  17 |
+  18 |
+  19 |
+  20 |     const response = await request.post('/booking',{
+  21 |         data:{
+  22 |                 "firstname": firstName,
+  23 |                 "lastname": lastName,
+  24 |                 "totalprice": totalPrice,
+  25 |                 "depositpaid": true,
+  26 |                 "bookingdates": {
+  27 |                     "checkin": checkInDate,
+  28 |                     "checkout": checkOutDate
+  29 |                 },
+  30 |                 "additionalneeds": additionalNeeds
+  31 |             },
+  32 |     })
+  33 |
+  34 |     expect(response.ok()).toBeTruthy();
+  35 |     expect(response.status()).toBe(200);
+  36 |
+  37 |     const responseBody = await response.json();
+  38 |
+  39 |     console.log(responseBody);
+  40 |
+  41 |     expect(responseBody.booking).toHaveProperty("firstname", firstName);
+  42 |     expect(responseBody.booking).toHaveProperty("lastname", lastName);
+  43 |
+> 44 |     expect(responseBody.booking.bookingdates).toHaveProperty("checkin", "2025-04-10");
+     |                                               ^ Error: expect(received).toHaveProperty(path, value)
+  45 |     expect(responseBody.booking.bookingdates).toHaveProperty("checkout", "2025-04-15");
+  46 |
+  47 |     expect(responseBody.booking).toHaveProperty("additionalneeds", additionalNeeds);
+  48 |
+  49 |
+  50 |
+  51 |
+  52 | })
+```

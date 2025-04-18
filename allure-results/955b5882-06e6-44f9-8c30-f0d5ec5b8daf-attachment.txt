@@ -1,0 +1,11 @@
+{
+  bookingid: 1664,
+  booking: {
+    firstname: 'Morgan',
+    lastname: 'Rowe',
+    totalprice: 795,
+    depositpaid: true,
+    bookingdates: { checkin: '2025-04-18', checkout: '2025-04-23' },
+    additionalneeds: 'JhbiajGKEA'
+  }
+}

@@ -1,0 +1,21 @@
+{
+  bookingid: 3746,
+  booking: {
+    firstname: 'Rossie',
+    lastname: 'Cartwright',
+    totalprice: 820,
+    depositpaid: true,
+    bookingdates: { checkin: '2025-04-18', checkout: '2025-04-23' },
+    additionalneeds: 'FOCUuNysej'
+  }
+}
+*****  Get Request by ID ******
+{
+  firstname: 'Rossie',
+  lastname: 'Cartwright',
+  totalprice: 820,
+  depositpaid: true,
+  bookingdates: { checkin: '2025-04-18', checkout: '2025-04-23' },
+  additionalneeds: 'FOCUuNysej'
+}
+*****  Get Request by Parameters ******

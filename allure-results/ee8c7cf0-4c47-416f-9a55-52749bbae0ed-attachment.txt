@@ -1,0 +1,25 @@
+ *** Create Booking ***
+{
+  bookingid: 2125,
+  booking: {
+    firstname: 'Germaine',
+    lastname: 'Cronin',
+    totalprice: 916,
+    depositpaid: true,
+    bookingdates: { checkin: '2025-04-18', checkout: '2025-04-24' },
+    additionalneeds: 'KFWPLnBEkH'
+  }
+}
+ *** GET Booking by ID *** 
+[ { bookingid: 2125 } ]
+ *** Generate Token ***
+{ token: '686f39c900bf156' }
+ *** Update Booking Details ***
+{
+  firstname: 'Nagarjuna',
+  lastname: 'Reddy',
+  totalprice: 1000,
+  depositpaid: true,
+  bookingdates: { checkin: '2024-07-05', checkout: '2024-07-12' },
+  additionalneeds: 'Laptop'
+}

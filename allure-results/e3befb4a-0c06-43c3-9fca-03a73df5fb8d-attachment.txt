@@ -1,0 +1,25 @@
+ *** Create Booking ***
+{
+  bookingid: 2511,
+  booking: {
+    firstname: 'Louisa',
+    lastname: 'Kreiger',
+    totalprice: 709,
+    depositpaid: true,
+    bookingdates: { checkin: '2025-04-18', checkout: '2025-04-24' },
+    additionalneeds: 'LMmNGZbMAa'
+  }
+}
+ *** GET Booking by ID *** 
+[ { bookingid: 2511 } ]
+ *** Generate Token ***
+{ token: 'c663a0902e374cc' }
+ *** Update partial Booking Details ***
+{
+  firstname: 'Lucky',
+  lastname: 'Shakthi',
+  totalprice: 709,
+  depositpaid: true,
+  bookingdates: { checkin: '2025-04-18', checkout: '2025-04-24' },
+  additionalneeds: 'Fruits'
+}

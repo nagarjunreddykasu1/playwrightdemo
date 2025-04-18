@@ -1,0 +1,20 @@
+{
+  bookingid: 1821,
+  booking: {
+    firstname: 'Enrique',
+    lastname: 'Schaden',
+    totalprice: 952,
+    depositpaid: true,
+    bookingdates: { checkin: '2025-04-18', checkout: '2025-04-23' },
+    additionalneeds: 'LqfIeuVWJX'
+  }
+}
+*****  Get Request ******
+{
+  firstname: 'Enrique',
+  lastname: 'Schaden',
+  totalprice: 952,
+  depositpaid: true,
+  bookingdates: { checkin: '2025-04-18', checkout: '2025-04-23' },
+  additionalneeds: 'LqfIeuVWJX'
+}

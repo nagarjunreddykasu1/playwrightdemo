@@ -1,0 +1,21 @@
+{
+  bookingid: 1599,
+  booking: {
+    firstname: 'Ibrahim',
+    lastname: 'Schmidt',
+    totalprice: 270,
+    depositpaid: true,
+    bookingdates: { checkin: '2025-04-18', checkout: '2025-04-23' },
+    additionalneeds: 'FwsaBxRjfK'
+  }
+}
+*****  Get Request by ID ******
+{
+  firstname: 'Ibrahim',
+  lastname: 'Schmidt',
+  totalprice: 270,
+  depositpaid: true,
+  bookingdates: { checkin: '2025-04-18', checkout: '2025-04-23' },
+  additionalneeds: 'FwsaBxRjfK'
+}
+*****  Get Request by Parameters ******

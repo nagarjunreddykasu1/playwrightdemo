@@ -1,0 +1,65 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: Create Booking
+- Location: D:\Playwright\MochaFramework\tests\create_booking_4.spec.js:7:1
+
+# Error details
+
+```
+Error: expect(received).toBeTruthy()
+
+Received: false
+    at D:\Playwright\MochaFramework\tests\create_booking_4.spec.js:22:27
+```
+
+# Test source
+
+```ts
+   1 | const { test, expect } = require("@playwright/test");
+   2 | const createBookingPayload = require('../testdata/create_booking_dynamic_payload.json');
+   3 | const {faker} = require("@faker-js/faker");
+   4 | const { DateTime } = require("luxon");
+   5 | const {stringFormat} = require("../utils/common");
+   6 |
+   7 | test("Create Booking", async({request})=>{
+   8 |
+   9 |     const firstName = faker.person.firstName();
+  10 |     const lastName = faker.person.lastName();
+  11 |     const totalPrice = faker.number.int(1000);
+  12 |     const additionalNeeds = faker.string.alpha(10, 20)
+  13 |     const checkInDate = DateTime.now().toFormat("yyyy-MM-dd");
+  14 |     const checkOutDate = DateTime.now().plus({days: 5}).toFormat("yyyy-MM-dd");
+  15 |
+  16 |     var dynamicPayload = stringFormat(JSON.stringify(createBookingPayload), firstName, lastName, totalPrice, checkInDate, checkOutDate, additionalNeeds)
+  17 |
+  18 |     const response = await request.post('/booking',{
+  19 |         data: dynamicPayload
+  20 |     })
+  21 |
+> 22 |     expect(response.ok()).toBeTruthy();
+     |                           ^ Error: expect(received).toBeTruthy()
+  23 |     expect(response.status()).toBe(200);
+  24 |
+  25 |     const responseBody = await response.json();
+  26 |
+  27 |     console.log(responseBody);
+  28 |
+  29 |     expect(responseBody.booking).toHaveProperty("firstname", firstName);
+  30 |     expect(responseBody.booking).toHaveProperty("lastname", lastName);
+  31 |
+  32 |     expect(responseBody.booking.bookingdates).toHaveProperty("checkin", checkInDate);
+  33 |     expect(responseBody.booking.bookingdates).toHaveProperty("checkout", checkOutDate);
+  34 |
+  35 |     expect(responseBody.booking).toHaveProperty("additionalneeds", additionalNeeds);
+  36 |
+  37 |
+  38 |
+  39 |
+  40 | })
+```

@@ -1,0 +1,12 @@
+{
+  bookingid: 498,
+  booking: {
+    firstname: 'Ena',
+    lastname: 'Bogisich',
+    totalprice: 871,
+    depositpaid: true,
+    bookingdates: { checkin: '2025-04-18', checkout: '2025-04-23' },
+    additionalneeds: 'arQmnDqASO'
+  }
+}
+*****  Get Request ******
