@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "test": "npx playwright test",
+    "report": "npx playwright show-report",
     "regression": "npx playwright test",
     "webTests": "npx playwright test --grep @web",
     "apiTests": "npx playwright test --grep @api"
