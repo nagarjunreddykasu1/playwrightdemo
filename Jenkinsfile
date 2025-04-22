@@ -21,7 +21,7 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'npm ci'
+                sh 'npm clean install'
                 sh 'npx playwright install --with-deps'
             }
         }
