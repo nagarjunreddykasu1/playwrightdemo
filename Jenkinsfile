@@ -21,20 +21,20 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'npm clean install'
-                sh 'npx playwright install --with-deps'
+                bat 'npm clean install'
+                bat 'npx playwright install --with-deps'
             }
         }
 
         stage('Run Tests with Allure') {
             steps {
-                sh 'npx playwright test --reporter=line,allure-playwright'
+                bat 'npx playwright test --reporter=line,allure-playwright'
             }
         }
 
         stage('Generate Allure Report') {
             steps {
-                sh 'npx allure generate ./allure-results --clean -o ./allure-report'
+                bat 'npx allure generate ./allure-results --clean -o ./allure-report'
             }
         }
 
